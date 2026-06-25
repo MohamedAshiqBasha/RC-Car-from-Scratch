@@ -1,9 +1,9 @@
 import RPi.GPIO as GPIO
 import time
 
-ENA = 18  # GPIO18 -> L293D pin 1
-IN1 = 23  # GPIO23 -> L293D pin 2
-IN2 = 24  # GPIO24 -> L293D pin 7
+ENA = 18
+IN1 = 23
+IN2 = 24
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
@@ -12,26 +12,25 @@ GPIO.setup(ENA, GPIO.OUT)
 GPIO.setup(IN1, GPIO.OUT)
 GPIO.setup(IN2, GPIO.OUT)
 
-try:
-    # Enable the channel
-    GPIO.output(ENA, GPIO.HIGH)
+GPIO.output(ENA, GPIO.HIGH)
 
-    # Forward for 3 seconds
+try:
+    print("Test 1: IN1 HIGH, IN2 LOW")
     GPIO.output(IN1, GPIO.HIGH)
     GPIO.output(IN2, GPIO.LOW)
-    time.sleep(3)
+    time.sleep(5)
 
-    # Stop 1 second
+    print("Stop")
     GPIO.output(IN1, GPIO.LOW)
     GPIO.output(IN2, GPIO.LOW)
-    time.sleep(1)
+    time.sleep(2)
 
-    # Backward for 3 seconds
+    print("Test 2: IN1 LOW, IN2 HIGH")
     GPIO.output(IN1, GPIO.LOW)
     GPIO.output(IN2, GPIO.HIGH)
-    time.sleep(3)
+    time.sleep(5)
 
-    # Stop
+    print("Stop")
     GPIO.output(IN1, GPIO.LOW)
     GPIO.output(IN2, GPIO.LOW)
 
