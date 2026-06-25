@@ -15,22 +15,22 @@ GPIO.setup(IN2, GPIO.OUT)
 GPIO.output(ENA, GPIO.HIGH)
 
 try:
-    print("Test 1: IN1 HIGH, IN2 LOW")
+    print("FORWARD TEST: IN1 HIGH, IN2 LOW")
     GPIO.output(IN1, GPIO.HIGH)
     GPIO.output(IN2, GPIO.LOW)
-    time.sleep(5)
+    time.sleep(8)
 
-    print("Stop")
+    print("STOP")
     GPIO.output(IN1, GPIO.LOW)
     GPIO.output(IN2, GPIO.LOW)
-    time.sleep(2)
+    time.sleep(3)
 
-    print("Test 2: IN1 LOW, IN2 HIGH")
+    print("REVERSE TEST: IN1 LOW, IN2 HIGH")
     GPIO.output(IN1, GPIO.LOW)
     GPIO.output(IN2, GPIO.HIGH)
-    time.sleep(5)
+    time.sleep(8)
 
-    print("Stop")
+    print("STOP")
     GPIO.output(IN1, GPIO.LOW)
     GPIO.output(IN2, GPIO.LOW)
 
